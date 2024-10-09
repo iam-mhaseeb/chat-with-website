@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat with Websites</title>
+</head>
+<body>
+    <h1>Chat with Websites</h1>
+    <div>
+        <p><strong>Website URL:</strong> {{ session['website_url'] }}</p>
+        <form method="post">
+            <label for="user_query">Type your message here...</label><br>
+            <textarea id="user_query" name="user_query" rows="4" cols="50"></textarea><br>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <div>
+        <h2>Chat History</h2>
+        {% for message in chat_history %}
+            {% if message.role == 'user' %}
+                <p><strong>You:</strong> {{ message.content }}</p>
+            {% elif message.role == 'ai' %}
+                <p><strong>Bot:</strong> {{ message.content }}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+</body>
+</html>

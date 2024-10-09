@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat with Websites</title>
+</head>
+<body>
+    <h1>Chat with Websites</h1>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+    <form method="post">
+        <label for="website_url">Website URL:</label><br>
+        <input type="text" id="website_url" name="website_url" placeholder="Enter website URL"><br><br>
+        
+        <label for="api_key">API Key:</label><br>
+        <input type="text" id="api_key" name="api_key" placeholder="Enter your API Key"><br><br>
+        
+        <label for="api_provider">API Provider:</label><br>
+        <select id="api_provider" name="api_provider">
+            <option value="openai">OpenAI</option>
+            <option value="anthropic">Claude (Anthropic)</option>
+        </select><br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
